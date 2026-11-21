@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "About System";
+}
+
+<div class="page-header mb-4 reveal">
+    <span class="eyebrow">Overview</span>
+    <h2><i class="bi bi-info-circle-fill me-2"></i>About the System</h2>
+    <p class="text-muted mb-0">Learn what this application does and how it is built.</p>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-6 reveal">
+        <div class="portal-card h-100 lift">
+            <h5 class="section-title"><i class="bi bi-bullseye me-2"></i>Purpose</h5>
+            <p class="mb-0">The Student Course Registration System lets a university office register students for a course and semester, view all registered students, and open the details of any student. It was built as a self-learning activity to practise ASP.NET Core MVC.</p>
+        </div>
+    </div>
+    <div class="col-lg-6 reveal">
+        <div class="portal-card h-100 lift">
+            <h5 class="section-title"><i class="bi bi-diagram-3-fill me-2"></i>MVC Architecture</h5>
+            <ul class="info-list list-unstyled mb-0">
+                <li><i class="bi bi-box"></i><span><strong>Model</strong> &ndash; <code>Student</code> class with validation rules.</span></li>
+                <li><i class="bi bi-window"></i><span><strong>View</strong> &ndash; Razor <code>.cshtml</code> pages that show the UI.</span></li>
+                <li><i class="bi bi-gear"></i><span><strong>Controller</strong> &ndash; <code>StudentController</code> handles requests and returns views.</span></li>
+                <li><i class="bi bi-signpost-split"></i><span><strong>Routing</strong> &ndash; <code>{controller=Home}/{action=Index}/{id?}</code></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-6 reveal">
+        <div class="portal-card h-100 lift">
+            <h5 class="section-title"><i class="bi bi-cpu-fill me-2"></i>Technologies Used</h5>
+            <div class="d-flex flex-wrap gap-2">
+                <span class="badge badge-soft">ASP.NET Core MVC</span>
+                <span class="badge badge-soft">C#</span>
+                <span class="badge badge-soft">Razor Views</span>
+                <span class="badge badge-soft">Tag Helpers</span>
+                <span class="badge badge-soft">Data Annotations</span>
+                <span class="badge badge-soft">HTML5 / CSS3</span>
+                <span class="badge badge-soft">Bootstrap 5</span>
+                <span class="badge badge-soft">JavaScript</span>
+                <span class="badge badge-soft">In-memory List&lt;Student&gt;</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 reveal">
+        <div class="portal-card h-100 lift">
+            <h5 class="section-title"><i class="bi bi-list-check me-2"></i>Features</h5>
+            <ul class="info-list list-unstyled mb-0">
+                <li><i class="bi bi-check2-circle"></i> Dashboard with live student counter</li>
+                <li><i class="bi bi-check2-circle"></i> Registration form with server-side and client-side validation</li>
+                <li><i class="bi bi-check2-circle"></i> Duplicate Student ID detection</li>
+                <li><i class="bi bi-check2-circle"></i> Student list with search, filters and empty-state message</li>
+                <li><i class="bi bi-check2-circle"></i> Student details card with print option</li>
+                <li><i class="bi bi-check2-circle"></i> Responsive layout for desktop, tablet and mobile</li>
+            </ul>
+        </div>
+    </div>
+</div>

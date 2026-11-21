@@ -1,0 +1,100 @@
+@model Student
+@{
+    ViewData["Title"] = "Register Student";
+}
+
+<div class="page-header mb-4 reveal">
+    <span class="eyebrow">Admissions</span>
+    <h2><i class="bi bi-person-plus-fill me-2"></i>Student Registration</h2>
+    <p class="text-muted mb-0">Fill in the details below to register a new student.</p>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-8 reveal">
+        <div class="portal-card">
+            <div class="steps" id="steps">
+                <div class="step" data-step="identity"><span class="num">1</span>Identity</div>
+                <span class="sep"></span>
+                <div class="step" data-step="contact"><span class="num">2</span>Contact</div>
+                <span class="sep"></span>
+                <div class="step" data-step="programme"><span class="num">3</span>Programme</div>
+            </div>
+
+            <form asp-action="Create" method="post" novalidate id="registerForm">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="Id" class="form-label"></label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-hash"></i></span>
+                            <input asp-for="Id" class="form-control" placeholder="e.g. 101" />
+                        </div>
+                        <span asp-validation-for="Id" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Name" class="form-label"></label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-person"></i></span>
+                            <input asp-for="Name" class="form-control" placeholder="e.g. Riya Patel" />
+                        </div>
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-12">
+                        <label asp-for="Email" class="form-label"></label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input asp-for="Email" class="form-control" placeholder="e.g. riya.patel@example.com" />
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-8">
+                        <label asp-for="Course" class="form-label"></label>
+                        <select asp-for="Course" asp-items="(SelectList)ViewBag.Courses" class="form-select">
+                            <option value="">-- Select Course --</option>
+                        </select>
+                        <span asp-validation-for="Course" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label asp-for="Semester" class="form-label"></label>
+                        <select asp-for="Semester" asp-items="(SelectList)ViewBag.Semesters" class="form-select">
+                            <option value="">-- Select --</option>
+                        </select>
+                        <span asp-validation-for="Semester" class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <hr class="my-4" />
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="submit" class="btn btn-primary px-4"><i class="bi bi-check2-circle me-1"></i>Submit</button>
+                    <button type="button" class="btn btn-outline-secondary px-4" id="resetBtn"><i class="bi bi-arrow-counterclockwise me-1"></i>Reset</button>
+                    <a class="btn btn-link ms-auto" asp-action="Index"><i class="bi bi-arrow-left me-1"></i>Back to Student List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-lg-4 reveal">
+        <div class="preview-card">
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="chip-id"></span>
+                <small style="color:var(--gold);letter-spacing:.18em" class="text-uppercase">Live Preview</small>
+            </div>
+            <div class="pv-name" id="pvName">Student Name</div>
+            <div class="pv-sub" id="pvEmail">student@email.com</div>
+            <div class="pv-row"><span>Student ID</span><span id="pvId">&mdash;</span></div>
+            <div class="pv-row"><span>Course</span><span id="pvCourse">&mdash;</span></div>
+            <div class="pv-row"><span>Semester</span><span id="pvSem">&mdash;</span></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@4.0.0/dist/jquery.validate.unobtrusive.min.js"></script>
+}

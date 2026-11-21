@@ -1,0 +1,31 @@
+@model Student
+@{
+    ViewData["Title"] = "Student Details";
+    var term = (Model.Semester % 2 == 1) ? "Odd term (July – Nov)" : "Even term (Jan – May)";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-7 reveal">
+        <div class="portal-card student-card">
+            <div class="student-header text-center">
+                <div class="avatar">@Model.Name.Substring(0, 1).ToUpper()</div>
+                <h3 class="mb-0 mt-3">@Model.Name</h3>
+                <p class="mb-2 mt-1" style="color:rgba(255,255,255,.7)">@Model.Course</p>
+                <span class="badge mt-1">Student ID: @Model.Id</span>
+            </div>
+
+            <div class="p-4">
+                <div class="detail-row"><i class="bi bi-hash"></i><div><small>Student ID</small><div>@Model.Id</div></div></div>
+                <div class="detail-row"><i class="bi bi-person"></i><div><small>Student Name</small><div>@Model.Name</div></div></div>
+                <div class="detail-row"><i class="bi bi-envelope"></i><div><small>Email Address</small><div>@Model.Email</div></div></div>
+                <div class="detail-row"><i class="bi bi-journal-bookmark"></i><div><small>Course</small><div>@Model.Course</div></div></div>
+                <div class="detail-row"><i class="bi bi-calendar3"></i><div><small>Semester</small><div>Semester @Model.Semester <span class="badge badge-soft ms-2">@term</span></div></div></div>
+
+                <div class="d-flex flex-wrap gap-2 mt-3 no-print">
+                    <a class="btn btn-primary" asp-action="Index"><i class="bi bi-arrow-left me-1"></i>Back to Student List</a>
+                    <button type="button" class="btn btn-outline-secondary" onclick="window.print()"><i class="bi bi-printer me-1"></i>Print</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
